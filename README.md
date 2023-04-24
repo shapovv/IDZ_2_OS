@@ -207,3 +207,53 @@ gcc pirate_group_program.c -o pirate_group_program -lrt -lpthread
 ./main_program 7 6
 ```
 ![](tests/program_7_5.png)
+
+**Решение на 8 баллов:**
+
+Код программ с соответствующими комментариями [main_program.c](program_8/main_program.c) и [pirate_group_program.c](program_8/pirate_group_program.c).
+
+Код на 8 баллов выполнен в соответствии с требованием: Множество независимых процессов взаимодействуют с использованием семафоров в стандарте UNIX SYSTEM V. Обмен данными ведется через разделяемую память в стандарте UNIX SYSTEM V.
+
+Компиляция и запуск:
+
+```с
+gcc main_program.c -o main_program -lrt -lpthread
+gcc pirate_group_program.c -o pirate_group_program -lrt -lpthread
+./main_program <AREA_COUNT> <PIRATE_GROUPS>
+```
+
+Ниже приведен набор тестов, покрывающий основную логику программы и результаты тестов:
+
+- Тест с одним участком и одной пиратской группой:
+
+```с
+./main_program 1 1
+```
+![](tests/program_8_1.png)
+- Тест с двумя участками и одной пиратской группой:
+
+```с
+./main_program 2 1
+```
+![](tests/program_8_2.png)
+
+- Тест с несколькими участками и несколькими пиратскими группами:
+
+```с
+./main_program 5 3
+```
+![](tests/program_8_3.png)
+
+- Тест с большим количеством участков и меньшим количеством пиратских групп:
+
+```с
+./main_program 10 3
+```
+![](tests/program_8_4.png)
+
+- Тест с большим количеством участков и большим количеством пиратских групп:
+
+```с
+./main_program 7 6
+```
+![](tests/program_8_5.png)
